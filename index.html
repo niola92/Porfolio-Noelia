@@ -17,12 +17,14 @@
 <!-- HEADER -->
 <header class="header">
   <div class="nav-container">
-    <img src="logotipo/logo.png" alt="Logo" class="logo">
+    <a href="index.html">
+  <img src="logotipo/logo.png" alt="Logo" class="logo">
+</a>
 
     <button class="menu-toggle" id="menu-toggle">☰</button>
 
     <nav class="nav" id="nav">
-      <a href="index.html">Home</a>
+    
       <a href="GraphicDesigner.html">Graphic Designer</a>
       <a href="UXDesigner.html">UX/UI Designer</a>
       <a href="Illustrations.html">Illustrations</a>
@@ -30,10 +32,14 @@
     </nav>
   </div>
 </header>
+<div class="modal" id="modal">
+  <img id="modal-img">
+</div>
+
 
 <!-- HERO -->
-<section class="hero">
-  <div class="container hero-content">
+<section class="hero container">
+
 
     <div class="hero-text">
       <h2>PORTFOLIO</h2>
@@ -43,9 +49,11 @@
     </div>
     
 
-    <img src="Figuras/mondrian2.png" class="mondrian-img">
-
-  </div>
+     <div class="hero-img">
+     <div class="image-hover">
+  <img src="Figuras/mondrian2.png" class="base">
+  <img src="Figuras/mondrian2.1.png" class="hover">
+</div>
 </section>
 
 <!-- ABOUT -->
@@ -99,7 +107,7 @@
 <!-- UX -->
 <section>
   <div class="container ux">
-    <img src="UX/ordenador.png">
+    <img src="UX/ordenador.png" class="no-click">
 
     <div>
       <h2>UX/UI DESIGNER</h2>

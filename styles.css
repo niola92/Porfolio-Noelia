@@ -8,13 +8,120 @@
 html, body{
   height:100%;
 }
+.hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:60px;
+  min-height:400px;
+}
 
+.hero-text{
+  flex:1;
+}
+
+.hero-img{
+  display:flex;
+}
+
+.hero-img img{
+  height:100%;
+  max-height:350px;
+  object-fit:contain;
+}
+.image-hover{
+  position:relative;
+  overflow:hidden;
+}
+
+.image-hover img{
+  width:100%;
+  display:block;
+}
+.hero-img img{
+  cursor:default;
+  pointer-events:none; /* evita click */
+}
+
+.hero-img img:hover{
+  filter:none; /* evita el gris */
+}
+.no-click{
+  cursor: default;
+  pointer-events: none;
+}
+
+
+
+/* imagen superior */
+.image-hover .hover{
+  position:absolute;
+  top:0;
+  left:0;
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.4s ease;
+}
+
+/* hover */
+.image-hover:hover .hover{
+  opacity:1;
+  transform:translateY(0);
+}
 body{
   font-family:'Be Vietnam Pro', sans-serif;
   background:#fff;
   color:#000;
   display:flex;
   flex-direction:column;
+}
+/* ===== MODAL GLOBAL ===== */
+.modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s;
+  z-index:999;
+}
+
+.modal.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal img{
+  max-width:90%;
+  max-height:90%;
+}
+.open-gallery{
+  cursor:pointer;
+}
+.modal-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.7);
+  color:#fff;
+  border:none;
+  font-size:40px;
+  padding:10px 15px;
+  cursor:pointer;
+  z-index:1000;
+}
+
+.modal-arrow.left{ left:20px; }
+.modal-arrow.right{ right:20px; }
+
+.modal-arrow:hover{
+  background:#555;
 }
 
 /* ===== TEXT ===== */
@@ -97,6 +204,13 @@ img{
   max-width:100%;
   height:auto;
   display:block;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+/* hover global → baja brillo */
+img:not(.logo):hover{
+  filter: brightness(70%);
 }
 
 /* ===== BUTTON ===== */
@@ -116,6 +230,13 @@ img{
 .btn:active{ background:#DB281A; }
 
 /* ===== FOOTER ===== */
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:10px;
+  flex-direction:row; /* explícito */
+}
 footer{
   background:#000;
   color:#fff;
@@ -124,12 +245,7 @@ footer{
   margin-top:auto;
 }
 
-.footer-links{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  margin-top:10px;
-}
+
 
 .footer-links a{
   color:#fff;
@@ -142,18 +258,6 @@ footer{
 /* ============================= */
 /* ===== HOME ===== */
 /* ============================= */
-.home-page .hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-}
-
-
-/* TEXTO */
-.hero-text {
-  flex: 1;
-}
 
 /* IMAGEN */
 .mondrian-img {
@@ -163,11 +267,7 @@ footer{
 }
 /*-----------*/
 
-.home-page .hero{
-  display:flex;
-  align-items:center;
-  min-height:400px;
-}
+
 
 .home-page .about{
   display:flex;
@@ -256,16 +356,7 @@ footer{
 }
 
 
-/* CENTRADO OPCIONAL (si lo quieres como mobile) */
-@media (max-width: 768px) {
-  .contact-section {
-    text-align: center;
-  }
 
-  .btn {
-    margin: 20px;
-  }
-}
 
 /* ============================= */
 /* ===== GRAPHIC DESIGNER ===== */
@@ -285,16 +376,6 @@ footer{
   text-align:center;
 }
 
-.graphic-page .hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.graphic-page .hero-img img{
-  height:300px;
-}
 
 .graphic-page .row{
   display:grid;
@@ -345,32 +426,8 @@ footer{
 /* ============================= */
 /* ===== UX PAGE ===== */
 /* ============================= */
-/* ===== HERO UX ===== */
 
-.ux-page .hero-content{
-  display:flex;
-  align-items:stretch;
-  justify-content:space-between;
-  gap:60px;
-}
 
-.ux-page .hero-text{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-/* IMAGEN HERO */
-.ux-page .hero-img{
-  display:flex;
-}
-
-.ux-page .hero-img img{
-  height:100%;
-  max-height:350px; /* control opcional */
-  object-fit:contain;
-}
 
 
 /* ===== PROJECTS ===== */
@@ -406,63 +463,24 @@ footer{
 }
 
 
-/* ===== RESPONSIVE ===== */
 
-@media (max-width:768px){
-
-  .ux-page .hero-content{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .ux-page .hero-img{
-    display:none;
-  }
-
-  .ux-page .projects{
-    grid-template-columns:1fr;
-  }
-
-  .ux-page .case{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .ux-page .case img{
-    width:100%;
-  }
-
-}
 
 /* ============================= */
 /* ===== ILLUSTRATIONS ===== */
 /* ============================= */
-/* HERO ILLUSTRATIONS */
 
-.illustrations-page .hero-content{
-  display:flex;
-  align-items:stretch;
-  justify-content:space-between;
-  gap:60px;
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  animation: zoomIn 0.3s ease;
 }
 
-.illustrations-page .hero-text{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+@keyframes zoomIn{
+  from{ transform: scale(0.8); opacity:0; }
+  to{ transform: scale(1); opacity:1; }
 }
 
-.illustrations-page .hero-img{
-  display:flex;
-}
 
-.illustrations-page .hero-img img{
-  height:100%;
-  max-height:350px;
-  object-fit:contain;
-}
-/*-----*/
 
 .illustrations-page .carousel-wrapper{
   position:relative;
@@ -490,6 +508,7 @@ footer{
 
 .illustrations-page .carousel img:hover{
   transform:scale(1.05);
+  filter: brightness(70%);
 }
 
 .illustrations-page .carousel::-webkit-scrollbar{
@@ -509,44 +528,67 @@ footer{
   padding:10px 15px;
   cursor:pointer;
 }
+.logo{
+  cursor:pointer;
+  transition:0.3s;
+}
+.logo:hover{
+  filter: brightness(70%);
+}
 
 .illustrations-page .arrow.left{ left:10px; }
 .illustrations-page .arrow.right{ right:10px; }
 
 .illustrations-page .arrow:hover{ background:#555; }
 
-/* MODAL */
-.illustrations-page .modal{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  opacity:0;
-  pointer-events:none;
-  transition:0.3s;
-  z-index:999;
-}
 
-.illustrations-page .modal.active{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.illustrations-page .modal img{
-  max-width:90%;
-  max-height:90%;
-}
 
 
 /* ============================= */
 /* ===== MOBILE ===== */
 /* ============================= */
 @media (max-width:768px){
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-img{
+    display:none;
+  }
+
+
+  .footer-links{
+  flex-direction:column;
+  gap:10px;
+}
+    .illustrations-page .carousel img{
+    width:200px;
+    height:260px;
+  }
+
+    .contact-section {
+    text-align: center;
+  }
+
+  .btn {
+    margin: 20px;
+  }
+ 
+
+  .ux-page .projects{
+    grid-template-columns:1fr;
+  }
+
+  .ux-page .case{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .ux-page .case img{
+    width:100%;
+  }
 
   section{ padding:60px 20px; }
   h1{ font-size:40px; }
@@ -562,15 +604,9 @@ footer{
     left:0;
     width:100%;
   }
-    .illustrations-page .hero-content{
-    flex-direction:column;
-    text-align:center;
-  }
+ 
 
-  .illustrations-page .hero-img{
-    display:none;
-  }
-
+  
   .nav.active{ display:flex; }
 
   .nav a{
@@ -580,7 +616,7 @@ footer{
   }
 
   /* HOME */
-  .home-page .hero,
+
   .home-page .about,
   .home-page .ux,
   .home-page .illustration{
@@ -618,7 +654,7 @@ footer{
   }
 
   /* GRAPHIC */
-  .graphic-page .hero,
+  
   .graphic-page .profile{
     flex-direction:column;
     text-align:center;
@@ -630,14 +666,10 @@ footer{
     align-items:center;
   }
 
-  .graphic-page .hero-img{
-    display:none;
-  }
+  
 
   /* UX */
-  .ux-page .projects{
-    grid-template-columns:1fr;
-  }
+ 
 
   .ux-page .case{
     flex-direction:column;
@@ -647,21 +679,12 @@ footer{
   .ux-page .case img{
     width:100%;
   }
-  .hero-img{
-    display:none;
-  }
+
+
+
+
+
     h1{ font-size:50px; }
 }
 
-  /* ILLUSTRATIONS */
   
-  .illustrations-page .carousel img{
-    width:200px;
-    height:260px;
-  }
-
-  .footer-links{
-    flex-direction:column;
-    gap:10px;
-  }
-

@@ -17,17 +17,20 @@
 <!-- HEADER -->
 <header class="header">
   <div class="nav-container">
-    <img src="logotipo/logo.png" class="logo" alt="logo">
+
+    <a href="index.html">
+      <img src="logotipo/logo.png" alt="Logo" class="logo">
+    </a>
 
     <button class="menu-toggle" id="menu-toggle">☰</button>
 
     <nav class="nav" id="nav">
-      <a href="index.html">Home</a>
       <a href="GraphicDesigner.html">Graphic Designer</a>
       <a href="UXDesigner.html">UX/UI Designer</a>
       <a href="Illustrations.html">Illustrations</a>
       <a href="Contact.html">Contact</a>
     </nav>
+
   </div>
 </header>
 
@@ -35,15 +38,26 @@
 <section class="container contact-section">
   <h1>CONTACT</h1>
 
-  <form id="contactForm" class="contact-form">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <textarea id="message" placeholder="Your Message" required></textarea>
+  <form action="https://formspree.io/f/mnjwjlqy" method="POST" class="contact-form">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <input type="text" name="subject" placeholder="Subject" required>
+
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <!-- asunto del email -->
+    <input type="hidden" name="_subject" value="New message from portfolio">
+
+    <!-- opcional: redirección -->
+    <!-- <input type="hidden" name="_next" value="https://tusitio.com/thanks.html"> -->
 
     <button type="submit" class="btn">SUBMIT</button>
+
   </form>
 
-  <div class="message" id="responseMsg"></div>
 </section>
 
 <!-- FOOTER -->
