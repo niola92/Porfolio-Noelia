@@ -7,13 +7,14 @@ if (toggle && nav) {
     nav.classList.toggle("active");
   });
 }
+
+
 // ===== MODAL =====
-if (modal && modalImg) {
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const leftBtn = document.getElementById("modal-left");
 const rightBtn = document.getElementById("modal-right");
-}
+
 
 // ===== GALERÍAS =====
 const galleries = {
@@ -53,17 +54,16 @@ let currentGallery = [];
 let currentIndex = 0;
 
 
-// ===== CLICK GENERAL =====
+// ===== CLICK IMÁGENES =====
 document.querySelectorAll("img").forEach(img => {
 
-  // ❌ NO CLICK
+  // ❌ excluir imágenes
   if (img.classList.contains("no-click") || img.classList.contains("logo")) return;
 
-  // 🔹 GALERÍA
+  // 🔹 GALERÍAS (UX)
   if (img.classList.contains("open-gallery")) {
     img.addEventListener("click", () => {
       const key = img.dataset.gallery;
-
       if (!galleries[key]) return;
 
       currentGallery = galleries[key];
@@ -75,9 +75,7 @@ document.querySelectorAll("img").forEach(img => {
     return;
   }
 
- 
-
-  // 🔹 ZOOM NORMAL
+  // 🔹 ZOOM NORMAL (Illustrations + resto)
   img.addEventListener("click", () => {
     currentGallery = [];
     modal.classList.add("active");
@@ -87,7 +85,7 @@ document.querySelectorAll("img").forEach(img => {
 });
 
 
-// ===== FLECHAS DEL MODAL =====
+// ===== FLECHAS MODAL =====
 if (leftBtn && rightBtn) {
 
   rightBtn.addEventListener("click", (e) => {
@@ -105,6 +103,7 @@ if (leftBtn && rightBtn) {
     currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
     modalImg.src = currentGallery[currentIndex];
   });
+
 }
 
 
@@ -133,6 +132,7 @@ document.addEventListener("keydown", (e) => {
 
 // ===== CERRAR MODAL =====
 if (modal && modalImg) {
+
   modal.addEventListener("click", () => {
     modal.classList.remove("active");
   });
@@ -140,6 +140,7 @@ if (modal && modalImg) {
   modalImg.addEventListener("click", (e) => {
     e.stopPropagation();
   });
+
 }
 
 
@@ -149,7 +150,7 @@ function setupCarousel(carouselId, leftId, rightId){
   const left = document.getElementById(leftId);
   const right = document.getElementById(rightId);
 
-  if(!carousel || !left || !right) return;
+  if (!carousel || !left || !right) return;
 
   left.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -162,6 +163,5 @@ function setupCarousel(carouselId, leftId, rightId){
   });
 }
 
-// 🔥 IMPORTANTE
 setupCarousel("carousel1", "left1", "right1");
 setupCarousel("carousel2", "left2", "right2");
