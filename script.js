@@ -10,12 +10,31 @@ const galleries = {
   app: [
     "app/app1.png",
     "app/app2.png",
+    "app/app4.png",
+    "app/app5.png",
+    "app/app6.png",
+    "app/app7.png",
+    "app/app8.png",
+    "app/app9.png",
+    "app/app10.png",
+    "app/app11.png",
+    "app/app12.png",
+    "app/app13.png",
+    "app/app14.png",
+    "app/app15.png",
     "app/app3.png"
   ],
   web: [
     "web/web1.jpg",
     "web/web2.png",
     "web/web3.png",
+    "web/web5.png",
+    "web/web6.png",
+    "web/web7.png",
+    "web/web8.png",
+    "web/web9.png",
+    "web/web10.png",
+    "web/web11.png",
     "web/web4.png"
   ]
 };
