@@ -1,9 +1,19 @@
+// ===== MENU =====
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav");
+
+if (toggle && nav) {
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+}
 // ===== MODAL =====
+if (modal && modalImg) {
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const leftBtn = document.getElementById("modal-left");
 const rightBtn = document.getElementById("modal-right");
-
+}
 
 // ===== GALERÍAS =====
 const galleries = {
