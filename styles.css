@@ -368,10 +368,9 @@ footer{
 
 .graphic-page .text-center{
   text-align:center;
-  margin:0 auto 60px auto;
+  margin:0 auto 20px auto;
   max-width:700px;
 }
-
 .graphic-page .text-center h2,
 .graphic-page .text-center p{
   text-align:center;
@@ -403,14 +402,16 @@ footer{
 /* COVID */
 
 
+.graphic-page .horizontal-section{
+  height:100vh;
+}
+
 .graphic-page .sticky{
   position:sticky;
   top:0;
-  min-height:100vh;
-  display:flex;
+   display:flex;
   align-items:flex-start;
   overflow:hidden;
-  padding-top:40px;
 }
 .graphic-page .track{
   display:flex;
