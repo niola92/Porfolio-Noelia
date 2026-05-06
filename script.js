@@ -54,6 +54,8 @@ let currentGallery = [];
 let currentIndex = 0;
 
 
+
+
 // ===== CLICK IMÁGENES =====
 document.querySelectorAll("img").forEach(img => {
 
